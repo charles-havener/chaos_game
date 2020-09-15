@@ -1,0 +1,397 @@
+#:kivy 1.9
+
+<InputGridLabel@Label>:
+    text_size: self.width, self.height
+    halign: 'center'
+    valign: 'center'
+    font_size: 15
+
+
+<InputGridTextInput@TextInput>:
+    font_size: 15
+    halign: 'center'
+    input_filter: 'float'
+
+
+<MyGrid>:
+
+    # Sliders + Their Display Labels
+    nvLabel: nvLabel
+    nSlider: nSlider
+    vSlider: vSlider
+
+    # Spinners
+    ruleSpinner: ruleSpinner
+    colorSpinner: colorSpinner
+    reductionSpinner: reductionSpinner
+
+    # Image
+    image: image
+
+    # Point Labels
+    labelOne: labelOne
+    labelTwo: labelTwo
+    labelThree: labelThree
+    labelFour: labelFour
+    labelFive: labelFive
+    labelSix: labelSix
+    labelSeven: labelSeven
+    labelEight: labelEight
+
+    # Compressions
+    cOne: cOne
+    cTwo: cTwo
+    cThree: cThree
+    cFour: cFour
+    cFive: cFive
+    cSix: cSix
+    cSeven: cSeven
+    cEight: cEight
+
+    # Rotations
+    rOne: rOne
+    rTwo: rTwo
+    rThree: rThree
+    rFour: rFour
+    rFive: rFive
+    rSix: rSix
+    rSeven: rSeven
+    rEight: rEight
+
+    # Probabilitess
+    pOne: pOne
+    pTwo: pTwo
+    pThree: pThree
+    pFour: pFour
+    pFive: pFive
+    pSix: pSix
+    pSeven: pSeven
+    pEight: pEight
+
+    # Main Layout
+    GridLayout:
+        cols: 3
+        size: root.width, root.height
+
+        # 1st Main Column - Inputs Column
+        GridLayout:
+            rows: 5
+            size_hint_x: .29
+            padding: [10,10,10,10]
+            spacing: [0, 10]
+
+            # Top Labels
+            GridLayout:
+                rows: 2
+                cols: 1
+                size_hint_y: .10
+
+                Label:
+                    text: "Chaos Game"
+                    font_size: 40
+
+                Label:
+                    id: nvLabel
+                    text: "1,000,000 points and 2 verts"
+
+            # Sliders
+            GridLayout:
+                rows: 2
+                cols: 2
+                size_hint_y: .11
+
+                Label:
+                    text: "N"
+                    size_hint_x: .20
+
+                Slider:
+                    id: nSlider
+                    size_hint_x: .80
+                    min: 500000
+                    max: 5000000
+                    step: 50000
+                    value: 1000000
+                    on_touch_up: root.sliderUpdate(nSlider)
+
+                Label:
+                    text: "V"
+                    size_hint_x: .20
+
+                Slider:
+                    id: vSlider
+                    size_hint_x: .80
+                    min: 2
+                    max: 8
+                    step: 1
+                    value: 2
+                    on_touch_up: root.sliderUpdate(vSlider)
+
+            # Spinners
+            GridLayout:
+                rows: 3
+                cols: 2
+                size_hint_y: .19
+                spacing: [10, 20]
+                padding: [0,10,0,10]
+
+                Label:
+                    text: "Reduction"
+                    size_hint_x: .25
+
+                Spinner:
+                    id: reductionSpinner
+                    text: 'Points'
+                    values: 'Points', 'Line'
+                    size_y: 100
+                    sync_height: True
+                    size_hint_x: .8
+
+                Label:
+                    text: "Rule"
+                    size_hint_x: .25
+
+                Spinner:
+                    id: ruleSpinner
+                    text: 'Standard'
+                    values: 'Standard', 'Not Prev', 'Not CCW', 'Not CW', 'Not Opposite', 'Not Adj', 'Not Adj Prev2', 'Not Adj Prev2 Same'
+                    size_y: 100
+                    sync_height: True
+                    size_hint_x: .8
+
+                Label:
+                    text: "Color Map"
+                    size_hint_x: .25
+
+                Spinner:
+                    id: colorSpinner
+                    text: 'All White'
+                    values: 'All White', 'Focus One', 'Jet', 'Cividis', 'Viridis', 'Magma', 'Plasma', 'Terrain'
+                    sync_height: True
+                    size_hint_x: .8
+
+            # Point Input Grid
+            GridLayout:
+                rows: 10
+                cols: 4
+                size_hint_y: .40
+                spacing: [5, 10]
+
+                # Labels
+                Label:
+                    text:''
+
+                Label:
+                    text:'Compression'
+                    text_size: self.width, self.height*.95
+                    halign: 'center'
+                    valign: 'bottom'
+                    font_size: 12
+
+                Label:
+                    text:'Rotation'
+                    text_size: self.width, self.height*.95
+                    halign: 'center'
+                    valign: 'bottom'
+                    font_size: 12
+
+                Label:
+                    text:'Probability'
+                    text_size: self.width, self.height*.95
+                    halign: 'center'
+                    valign: 'bottom'
+                    font_size: 12
+
+                # Point 1
+                InputGridLabel:
+                    id: labelOne
+                    text:'Point 1'
+                InputGridTextInput:
+                    id: cOne
+                    text:'5'
+                InputGridTextInput:
+                    id: rOne
+                    text:'0'
+                InputGridTextInput:
+                    id: pOne
+                    text:'.041'
+
+                # Point 2
+                InputGridLabel:
+                    id: labelTwo
+                    text:'Point 2'
+                InputGridTextInput:
+                    id: cTwo
+                    text:'1.04'
+                InputGridTextInput:
+                    id: rTwo
+                    text:'38'
+                InputGridTextInput:
+                    id: pTwo
+                    text:'.959'
+                
+                # Point 3
+                InputGridLabel:
+                    id: labelThree
+                    text:'Point 3'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cThree
+                    text:'2'
+                    opacity: 0
+                    disabled: False
+                InputGridTextInput:
+                    id: rThree
+                    text:'0'
+                    opacity: 0
+                    disabled: False
+                InputGridTextInput:
+                    id: pThree
+                    text:'.33'
+                    opacity: 0
+                    disabled: False
+                
+                # Point 4
+                InputGridLabel:
+                    id: labelFour
+                    text:'Point 4'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cFour
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: rFour
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: pFour
+                    text:''
+                    opacity: 0
+                    disabled: True
+
+                # Point 5
+                InputGridLabel:
+                    id: labelFive
+                    text:'Point 5'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cFive
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: rFive
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: pFive
+                    text:''
+                    opacity: 0
+                    disabled: True
+
+                # Point 6
+                InputGridLabel:
+                    id: labelSix
+                    text:'Point 6'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cSix
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: rSix
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: pSix
+                    text:''
+                    opacity: 0
+                    disabled: True
+
+                # Point 7
+                InputGridLabel:
+                    id: labelSeven
+                    text:'Point 7'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cSeven
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: rSeven
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: pSeven
+                    text:''
+                    opacity: 0
+                    disabled: True
+
+                # Point 8
+                InputGridLabel:
+                    id: labelEight
+                    text:'Point 8'
+                    opacity: 0
+                InputGridTextInput:
+                    id: cEight
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: rEight
+                    text:''
+                    opacity: 0
+                    disabled: True
+                InputGridTextInput:
+                    id: pEight
+                    text:''
+                    opacity: 0
+                    disabled: True
+
+                # Buttons
+                Button:
+                    text: 'Clear All'
+                    on_release: root.clearInputCol(1,2,3)
+                Button:
+                    text: 'Clear Col'
+                    on_release: root.clearInputCol(1)
+                Button:
+                    text: 'Clear Col'
+                    on_release: root.clearInputCol(2)
+                Button:
+                    text: 'Clear Col'
+                    on_release: root.clearInputCol(3)
+
+            # Buttons
+            GridLayout:
+                rows: 2
+                size_hint_y: .15
+                spacing: 10
+                Button:
+                    text: 'Update Image with Current Parameters'
+                    on_release: root.updateImage(1000) # Image will be 1000x1000.
+
+                Button:
+                    text:"Output a High Quality Version of This Image"
+                    on_release: root.updateImage(4000) # Image will be 4000x4000.
+
+
+        # 2nd Main Column - Center Divider.
+        Button:
+            text: ""
+            background_color: .5,.5,.5,1
+            size_hint_x: .01
+            disabled: True
+
+        # 3rd Main Column - Image Location
+        Image:
+            id: image
+            # Set to actual image path in MyGrid init.
+            source: "."

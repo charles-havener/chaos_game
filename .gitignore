@@ -1,0 +1,20 @@
+# ignore .cfg files
+*.cfg
+
+# ignore all files in share directory
+share/
+
+# ignore all files in scrpits directory
+Scripts/
+
+# ignore all files in Lib directory
+Lib/
+
+#ignore all files in __pycache__ directory
+__pycache__/
+
+#ignore etc folder
+etc/
+
+# ignore .png in base folder
+/*.png
