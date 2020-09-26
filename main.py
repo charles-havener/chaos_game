@@ -16,7 +16,7 @@ from kivy.core.window import Window
 from kivy.uix.image import Image
 from kivy.uix.popup import Popup
 
-# Others
+# Non Kivy Imports
 import numpy as np
 import os
 
@@ -87,8 +87,8 @@ class MyGrid(Widget):
         self.image.source = os.path.join(
             __location__, 'Images', 'defaultImage.png')
 
-
     # Returns the input labels and compression/rotation/probability input varibles values in a list.
+
     def getPointsArray(self):
         points = [[self.labelOne, self.cOne, self.rOne, self.pOne],
                   [self.labelTwo, self.cTwo, self.rTwo, self.pTwo],
@@ -100,15 +100,15 @@ class MyGrid(Widget):
                   [self.labelEight, self.cEight, self.rEight, self.pEight]]
         return points
 
-
     # Updates the main window text with num points and verts when sliders change.
+
     def sliderUpdate(self, identity):
         self.nvLabel.text = f"{self.nSlider.value:,d} and {self.vSlider.value:,d} verts"
         if identity == self.vSlider:
             self.vSliderUpdate()
 
-
     # Hides/shows and enables/disables rows of inputs when number of verts changes.
+
     def vSliderUpdate(self):
         points = self.getPointsArray()
 
@@ -122,16 +122,16 @@ class MyGrid(Widget):
                 points[x][y].opacity = 0
                 points[x][y].disabled = True
 
-
     # Clears the input column(s) on button press
+
     def clearInputCol(self, *o):
         points = self.getPointsArray()
         for x in o:
             for i in range(8):
                 points[i][x].text = ""
 
-
     # Will create an image based on current input values and selections.
+
     def updateImage(self, dims):
 
         # Number of points to draw is based on slider value, or if high quality output then on reduction method.
@@ -139,7 +139,7 @@ class MyGrid(Widget):
             if self.reductionSpinner.text == "Points":
                 n = 250000000
             else:
-                n = 100000000
+                n = 15000000
         else:
             n = self.nSlider.value
 
