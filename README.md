@@ -21,7 +21,7 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-  - [Built With](#built-with)
+- [How it works](#how-it-works)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Requirements](#requirements)
@@ -48,14 +48,30 @@
 </p>
 <p align="center"></p>
 <br>
+<p align="center">Examples of line reduction method</p>
+<p align="center">
+  <img src="Images\line_reduction.png" alt="Preview" width="900">
+</p>
+<p align="center"></p>
+<br>
+<p align="center">Examples of points reduction method</p>
+<p align="center">
+  <img src="Images\points_reduction.png" alt="Preview" width="900">
+</p>
+<p align="center"></p>
+<br>
 
-### Built With
-
-- [Python 3.7.8](https://www.python.org/downloads/release/python-378/)
-- [Kivy](https://kivy.org/#home)
-- [Datashader](https://datashader.org/index.html)
-- [Numba (Jit)](https://numba.pydata.org/)
+<p align="center">Built with 
+<a href="https://www.python.org/downloads/release/python-378/">Python 3.7.8</a>, 
+<a href="https://www.python.org/downloads/release/python-378/">Kivy</a>, 
+<a href="https://www.python.org/downloads/release/python-378/">Datashader</a>, 
+<a href="https://www.python.org/downloads/release/python-378/">Numba (Jit)</a>, 
+and more</p>
   <br>
+  <br>
+  <br>
+
+## How it Works
 
 ### 1. Constructing the data set
 
