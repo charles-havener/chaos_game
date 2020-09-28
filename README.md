@@ -162,8 +162,6 @@ Sets restrictions on the outer vertex that will be selected next.
 - Not Adj Prev2 Same (Not adjacent to the previous vertex if the previous 2 chosen vertices were the same):
   - The chosen vertex cannot be a vertex adjacent to the previous vertex, if the previous two vertices were the same.
 
-<br>
-
 ### Compression
 
 Can be uniquely applied to each outer vertex. Defaults to 2 if left empty or input is invalid
@@ -171,8 +169,6 @@ Can be uniquely applied to each outer vertex. Defaults to 2 if left empty or inp
 The ratio of the distance traveled to create the new point from the randomly chosen vertex. A value of **3** would result in the point being drawn 1/**3** of the distance to the lastly created point from the chosen vertex.
 
 <!-- ADD IMAGE TO SHOW-->
-
-<br>
 
 ### Rotation
 
@@ -182,15 +178,11 @@ Expressed in degrees. Rotation is applied counter clockwise about the chosen out
 
 <!-- ADD IMAGE TO SHOW-->
 
-<br>
-
 ### Probability
 
 Can be uniquely applied to each outer vertex. Defaults to 1/**V** if left empty or input is invalid.
 
 Values will be scaled and adjusted to sum to 1 with proportion kept the same. For example, if **V**=4 and **Probability** = [1, 2, 1, 1]. **Probability** will be adjusted to [0.2, 0.4, 0.2, 0.2].
-
-<br>
 
 ### Output
 
