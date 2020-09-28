@@ -168,7 +168,10 @@ Can be uniquely applied to each outer vertex. Defaults to 2 if left empty or inp
 
 How much of the distance to the  new point from the randomly chosen vertex is traveled. A value of **3** would result in the point being drawn 1/**3** of the distance to the lastly created point from the chosen vertex.
 
-<!-- ADD IMAGE TO SHOW-->
+<p align="center">
+  <img src="Images\compression.png" alt="Compression" width="450">
+</p>
+<p align="center">Example of Compression with a value of 3</p>
 
 ### Rotation
 
@@ -176,7 +179,10 @@ Can be uniquely applied to each outer vertex. Defaults to 0 if left empty or inp
 
 Expressed in degrees. Rotation is applied counter clockwise about the chosen outer vertex.
 
-<!-- ADD IMAGE TO SHOW-->
+<p align="center">
+  <img src="Images\rotation.png" alt="Rotation" width="450">
+</p>
+<p align="center">Example of a 45 degree rotation about V1</p>
 
 ### Probability
 
