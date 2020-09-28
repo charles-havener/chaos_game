@@ -50,13 +50,13 @@
 <br>
 <p align="center">Examples of line reduction method</p>
 <p align="center">
-  <img src="Images\line_reduction.png" alt="Preview" width="900">
+  <img src="Images\line_reduction.png" alt="Line Examples" width="900">
 </p>
 <p align="center"></p>
 <br>
 <p align="center">Examples of points reduction method</p>
 <p align="center">
-  <img src="Images\points_reduction.png" alt="Preview" width="900">
+  <img src="Images\points_reduction.png" alt="Points Examples" width="900">
 </p>
 <p align="center"></p>
 <br>
@@ -182,7 +182,7 @@ Expressed in degrees. Rotation is applied counter clockwise about the chosen out
 
 Can be uniquely applied to each outer vertex. Defaults to 1/**V** if left empty or input is invalid.
 
-Values will be scaled and adjusted to sum to 1 with proportion kept the same. For example, if **V**=4 and **Probability** = [1, 2, 1, 1]. **Probability** will be adjusted to [0.2, 0.4, 0.2, 0.2].
+Values will be scaled and adjusted to sum to 1 with proportion kept the same. For example, if **V**=4 and **Probability** = [1, 2, 1, 1], **Probability** will be adjusted to [0.2, 0.4, 0.2, 0.2].
 
 ### Output
 
