@@ -67,9 +67,8 @@
 <a href="https://www.python.org/downloads/release/python-378/">Datashader</a>, 
 <a href="https://www.python.org/downloads/release/python-378/">Numba (Jit)</a>, 
 and more</p>
-  <br>
-  <br>
-  <br>
+
+<br>
 
 ## How it Works
 
@@ -93,8 +92,6 @@ From here the bins are flushed through a histogram equalization function which m
 
 Finally based on the colormap chosen, each outer vertex is assigned a color. The subcategories of each bin relate to the outer vertex chosen for the initial data points within the bin and are mutually exclusive. The color assigned to the pixel for each bin is a composition of the colors relative to the size of the bins subcategories.
 
-<br>
-<br>
 <br>
 
 <!-- Getting Started -->
@@ -127,8 +124,6 @@ $ pip install -r requirements.txt
 $ python main.py
 ```
 
-<br>
-<br>
 <br>
 
 <!-- Explanation of Restrictions that can be Applied -->
@@ -209,8 +204,6 @@ Two options for output. Both will create an image in the directory of that **mai
 
 _For more examples, please refer to the [Examples shown on Imgur](https://imgur.com/gallery/jqMogwz)_
 
-<br>
-<br>
 <br>
 
 <!-- LICENSE -->
