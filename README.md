@@ -41,7 +41,7 @@
 
 <br>
 <p align="center">Inspired by <a href="https://www.youtube.com/watch?v=kbKtFN71Lfs&list=PLt5AfwLFPxWLDKmnxLg8477hrxY33LL6q&index=7&t=0s&app=desktop">this video</a> uploaded by Numberphile</p>
-<p align="center">Adjust parameters to create unexpected output from chaos, with the option to save a high resolution of your creations and discoveries.
+<p align="center">Adjust parameters to create unexpected output from seemingly random data points, with the option to save the output as a high resolution image.
 </p>
 <p align="center">
   <img src="Images\preview.png" alt="Preview" width="900">
@@ -74,23 +74,23 @@ and more</p>
 
 ### 1. Constructing the data set
 
-1. We begin by constructing the vertices of a regular polygon.
-2. Start at any arbitrary initial point in the xy plane. (the output is the same no matter which point is chosen. Here, vertex 0 of the constructed polygon will always be chosen for consistent output sizing).
-3. At each step a vertex is randomly chosen (further constrictions can be applied with [rule sets](#rule-sets) and [probabilites](#probability))
+1. We begin by constructing the vertices of a regular polygon with **V** sides.
+2. Start at any arbitrary initial point in the xy plane. (the final output will be the same regardless of the chosen point). Here, vertex 0 of the constructed polygon will always be chosen as the initial point for consistentcy).
+3. At each step a vertex is randomly chosen (further restrictions can be applied with [rule sets](#rule-sets) and [probabilites](#probability))
 4. A new point is added by moving halfway from the chosen vertex to the current point (further adjusted with [compression](#compression)).
 5. The newly plotted point becomes the current point and steps [3, 5] are repeated until N points are created
 
 ### 2. Aggregation (Reduction)
 
-With such a large number of points, we'll run into some serious plotting issues just mapping each point to its (x,y) location, namely overplotting and oversaturation.
+- With such a large number of points, we'll run into some serious plotting issues just mapping each point to its (x,y) location, namely overplotting and oversaturation.
 
-To better visualize our output, we are overlaying our (x,y) points on a canvas (our image) and binning the data points into groups based on which pixel of the canvas they would fall onto. The data is further categorized in these bins by the outer vertex that was chosen when they were initially created. The value of these bins determines the 'brightness' of each pixel in our final image.
+- To better visualize our output, we are overlaying our (x,y) points on a canvas (our image) and binning the data points into groups based on which pixel of the canvas they would fall onto. The data is further categorized in these bins by the outer vertex that was chosen when they were initially created. The value of these bins determines the 'brightness' of each pixel in our final image.
 
 ### 3. Color Mapping
 
-From here the bins are flushed through a histogram equalization function which makes sure each 'brightness' level is equally represented throughout the image.
+- From here the bins are flushed through a histogram equalization function which makes sure each 'brightness' level is equally represented throughout the image.
 
-Finally based on the colormap chosen, each outer vertex is assigned a color. The subcategories of each bin relate to the outer vertex chosen for the initial data points within the bin and are mutually exclusive. The color assigned to the pixel for each bin is a composition of the colors relative to the size of the bins subcategories.
+- Finally based on the colormap chosen, each outer vertex is assigned a color, this color will then be applied to the subcategories of each bin. The color assigned to a pixel is a composition of the subcategory colors in that pixel's bin scaled relative to their size (i.e. a mostly blue bin will appear mostly blue, while a bin with an even mix of blue and yellow will appear green).
 
 <br>
 
@@ -102,15 +102,15 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- Create a Python 3.7.8 virtual environment _(will **not** work on most recent python version)_
+- Create a Python 3.7.8 virtual environment *(this tool will **not** be able to run on the more recent versions of python)*
 
 ```sh
-$ virtualenv -p <path to Python 3.7.8> venv_chaos_game
+$ virtualenv -p < path to Python 3.7.8 > venv_chaos_game
 ```
 
 ### Requirements
 
-- Install the required packages in the created virtual environment after cloning the repo
+- Install the required packages within the created virtual environment after copying this repos' files to the virtual environment.
 
 ```sh
 $ pip install -r requirements.txt
@@ -118,7 +118,7 @@ $ pip install -r requirements.txt
 
 ### Running
 
-- Run the visualization tool with the following:
+- Run the visualization tool with the following from within the virtual environment:
 
 ```sh
 $ python main.py
@@ -134,7 +134,7 @@ $ python main.py
 
 ### Reduction
 
-Which data shader reduction method should be used.
+The Datashader reduction method that will be used.
 
 - Line: Computes a reduction by pixel, mapping data to pixels as one or more lines.
 - Points: Computes a reduction by pixel, mapping data to pixels as points.
@@ -166,7 +166,7 @@ Sets restrictions on the outer vertex that will be selected next.
 
 Can be uniquely applied to each outer vertex. Defaults to 2 if left empty or input is invalid
 
-The ratio of the distance traveled to create the new point from the randomly chosen vertex. A value of **3** would result in the point being drawn 1/**3** of the distance to the lastly created point from the chosen vertex.
+How much of the distance to the  new point from the randomly chosen vertex is traveled. A value of **3** would result in the point being drawn 1/**3** of the distance to the lastly created point from the chosen vertex.
 
 <!-- ADD IMAGE TO SHOW-->
 
@@ -189,12 +189,12 @@ Values will be scaled and adjusted to sum to 1 with proportion kept the same. Fo
 Two options for output. Both will create an image in the directory of that **main** is ran from that will be overwritten on subsequent button presses. You will need to navigate to this directory and rename or move the .png file to save a copy of the image.
 
 - Update Image with Current Parameters:
-  - will create a new 1000x1000 image named "image1000.png" with **N** points using the parameters chosen and update the image on the right of the display.
+  - will create a new 1000x1000 image named *image1000.png* with **N** points using the parameters chosen and update the image on the right of the display.
 - Output a High Quality Version of This Image:
-  - will create a new 4000x4000 named "image4000.png" with 250,000,000 (points reduction) or 15,000,000 (line reduction) points in the data set.
+  - will create a new 4000x4000 named *image4000.png* with 250,000,000 (points reduction) or 15,000,000 (line reduction) points in the data set.
   - This can take quite a long time, and may cause the application to crash if attempted on a poorly specced pc.
 
-_For more examples, please refer to the [Examples shown on Imgur](https://imgur.com/gallery/jqMogwz)_
+*For more examples, please refer to the [Examples shown on Imgur](https://imgur.com/gallery/jqMogwz)*
 
 <br>
 
