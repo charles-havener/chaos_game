@@ -63,9 +63,9 @@
 
 <p align="center">Built with 
 <a href="https://www.python.org/downloads/release/python-378/">Python 3.7.8</a>, 
-<a href="https://www.python.org/downloads/release/python-378/">Kivy</a>, 
-<a href="https://www.python.org/downloads/release/python-378/">Datashader</a>, 
-<a href="https://www.python.org/downloads/release/python-378/">Numba (Jit)</a>, 
+<a href="https://kivy.org/#home">Kivy</a>, 
+<a href="https://datashader.org/">Datashader</a>, 
+<a href="https://numba.pydata.org/">Numba (Jit)</a>, 
 and more</p>
 
 <br>
